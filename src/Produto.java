@@ -32,4 +32,12 @@ public class Produto {
     public void setPreco(double preco) {
         this.preco = preco;
     }
+
+    @Override
+    public String toString() {
+        return
+                "\nId = " + id +
+                "\nNome = " + nome +
+                "\nPreco = " + preco;
+    }
 }
