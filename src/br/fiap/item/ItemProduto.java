@@ -6,15 +6,15 @@ import java.text.DecimalFormat;
 
 public class ItemProduto {
     public Produto produto;
-    public int quantidade;
+    public int quantidadeComprada;
 
     public ItemProduto(Produto produto, int quantidade) {
         this.produto = produto;
-        this.quantidade = quantidade;
+        this.quantidadeComprada = quantidade;
     }
 
     public double calcularTotal() {
-        return this.produto.getValorUnitario() * this.quantidade;
+        return this.produto.getValorUnitario() * this.quantidadeComprada;
     }
 
     public Produto getProduto() {
@@ -25,12 +25,12 @@ public class ItemProduto {
         this.produto = produto;
     }
 
-    public int getQuantidade() {
-        return quantidade;
+    public int getQuantidadeComprada() {
+        return quantidadeComprada;
     }
 
-    public void setQuantidade(int quantidade) {
-        this.quantidade = quantidade;
+    public void setQuantidadeComprada(int quantidade) {
+        this.quantidadeComprada = quantidade;
     }
 
     @Override
@@ -39,7 +39,7 @@ public class ItemProduto {
         String aux = "";
         aux += "Produto: " + produto.getNome() + "\n";
         aux += "Valor unitári: R$ " + produto.getValorUnitario() + "\n";
-        aux += "Quantidade compradada: " + quantidade + "\n";
+        aux += "Quantidade compradada: " + quantidadeComprada + "\n";
         return aux;
     }
 }
