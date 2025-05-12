@@ -1,6 +1,8 @@
+package br.fiap.cliente;
+
 public class Cliente {
-    private int cpf;
-    private String nome;
+    public int cpf;
+    public String nome;
 
     public Cliente(int cpf, String nome) {
         this.cpf = cpf;
@@ -22,4 +24,13 @@ public class Cliente {
     public void setNome(String nome) {
         this.nome = nome;
     }
+
+    @Override
+    public String toString() {
+        String aux = "";
+        aux += "CPF: " + cpf + "\n";
+        aux += "Nome: " + nome + "\n";
+        return aux;
+    }
 }
+
