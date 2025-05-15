@@ -1,6 +1,7 @@
 package br.fiap.produto;
 
 import java.text.DecimalFormat;
+import java.util.Objects;
 
 public class Produto {
     public int id;
@@ -15,8 +16,8 @@ public class Produto {
         this.quantidadeEmEstoque = quantidadeEmEstoque;
     }
 
-    public Produto(int id) {
-        this.id = id;
+    public Produto(String nome) {
+        this.nome = nome;
     }
 
     public void adicionaEstoque(int quantidade) {
@@ -67,6 +68,12 @@ public class Produto {
         aux += "Valor: R$ " + df.format(valorUnitario) + "\n";
         aux += "Quantidade: " + quantidadeEmEstoque + "\n";
         return aux;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        Produto p = (Produto) obj;
+        return this.nome.equalsIgnoreCase(p.getNome());
     }
 }
 

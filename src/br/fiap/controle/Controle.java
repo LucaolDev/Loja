@@ -43,15 +43,19 @@ public class Controle {
         while (true) {
             try {
                 opcao = parseInt(showInputDialog(gerarMenu()));
-                if (opcao == 5) {
+                if (opcao == 4) {
                     return;
                 }
                 switch (opcao) {
                     case 1:
                         comprar();
                         break;
-                    case 4:
+                    case 2:
+                        removerProduto();
+                        break;
+                    case 3:
                         fecharCompra();
+                        break;
                 }
 
             } catch (Exception e) {
@@ -59,6 +63,12 @@ public class Controle {
             }
 
         }
+    }
+
+    private void removerProduto() {
+        String nome = showInputDialog("Qual produto sera removido");
+        Produto produto = new Produto(nome);
+        nf.removerProduto(produto);
     }
 
     private void fecharCompra(){
@@ -77,7 +87,7 @@ public class Controle {
             if (p.getNome().equalsIgnoreCase(nomeProduto)) {
                 quantidade = parseInt(showInputDialog("Qual a quantidade que será comprada? "));
                 p.debitarEstoque(quantidade);
-                nf.adicionarItemProduto(new ItemProduto(p, quantidade));
+                nf.adicionarProduto(new ItemProduto(p, quantidade));
             }
 
         }
@@ -87,11 +97,12 @@ public class Controle {
     private String gerarMenu() {
         String aux = "SISTEMA DE COMPRAS ONLINE\n";
         aux += "1. Comprar\n";
-        aux += "2. Adicionar produto\n";
-        aux += "3. Remover produto\n";
-        aux += "4. Fechar compra\n";
-        aux += "5. Finalizar compra\n";
+        aux += "2. Remover produto\n";
+        aux += "3. Fechar compra\n";
+        aux += "4. Finalizar compra\n";
         return aux;
     }
+
+
 
 }
